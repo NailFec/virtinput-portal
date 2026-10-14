@@ -1,0 +1,23 @@
+[package]
+name = "virtinput-portal"
+version = "0.1.0"
+edition = "2024"
+description = "RemoteDesktop portal backend that injects pointer and keyboard input through Wayland virtual devices"
+license = "MIT"
+publish = false
+
+[dependencies]
+env_logger = "0.11"
+log = "0.4"
+rustix = { version = "1", features = ["event", "fs", "mm", "pipe", "time"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync", "signal"] }
+wayland-backend = "0.3"
+wayland-client = "0.31"
+wayland-protocols = { version = "0.32", features = ["client", "staging", "unstable"] }
+wayland-protocols-wlr = { version = "0.3", features = ["client"] }
+wayland-scanner = "0.31"
+xkbcommon = "0.8"
+zbus = { version = "5", features = ["tokio"] }
+
+[build-dependencies]
+pkg-config = "0.3"
